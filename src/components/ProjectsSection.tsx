@@ -35,7 +35,7 @@ const projects = [
     title: 'Portfolio Website',
     description: 'This personal portfolio built with modern technologies, featuring smooth animations, responsive design, glassmorphism effects, and a stunning dark theme.',
     image: Portfolio,
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Git'],
+    tags: ['React', 'HTML', 'CSS', 'javaScript', 'Git'],
     demoUrl: 'https://portfolie-sooty.vercel.app/',
     githubUrl: 'https://github.com/BiktaMohamed/portfolio',
     isCurrent: true,
