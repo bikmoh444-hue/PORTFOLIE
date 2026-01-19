@@ -13,8 +13,8 @@ const projects = [
     description: 'A modern restaurant website featuring authentic Moroccan cuisine, bilingual support (Arabic/French), and an elegant UI with smooth animations.',
     image: anwalDeRome,
     tags: ['React', 'Tailwind CSS', 'Framer Motion'],
-    demoUrl: '#',
-    githubUrl: '#',
+    demoUrl: 'https://anwalderome.vercel.app/',
+    githubUrl: 'https://github.com/BiktaMohamed/anwal-de-rome',
     featured: true,
     badgeColor: 'from-emerald-500 to-teal-500',
     gradient: 'from-emerald-500/10 to-teal-500/10',
@@ -24,8 +24,8 @@ const projects = [
     description: 'E-commerce platform for a premium meat supplier, featuring product catalog, multi-language support, and modern red-themed design.',
     image: dindeSahara,
     tags: ['HTML', 'CSS', 'JavaScript'],
-    demoUrl: '#',
-    githubUrl: '#',
+    demoUrl: 'https://dindesahara.netlify.app/',
+    githubUrl: 'https://github.com/BiktaMohamed/dinde-sahara',
     featured: true,
     badgeColor: 'from-red-500 to-pink-500',
     gradient: 'from-red-500/10 to-pink-500/10',
@@ -35,8 +35,8 @@ const projects = [
     description: 'This personal portfolio built with modern technologies, featuring smooth animations, responsive design, glassmorphism effects, and a stunning dark theme.',
     image: null,
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Git'],
-    demoUrl: '#',
-    githubUrl: '#',
+    demoUrl: 'https://portfolie-sooty.vercel.app/',
+    githubUrl: 'https://github.com/BiktaMohamed/portfolio',
     isCurrent: true,
     badgeColor: 'from-cyan-500 to-blue-500',
     gradient: 'from-cyan-500/10 to-blue-500/10',
@@ -47,10 +47,23 @@ const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const handleDemoClick = (projectTitle: string) => {
+  const handleDemoClick = (url: string, projectTitle: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
     toast({
-      title: '🚀 Demo Opening',
-      description: `Loading ${projectTitle} live demo...`,
+      title: '🚀 Opening Project',
+      description: `Opening ${projectTitle} in a new tab...`,
+    });
+  };
+
+  const handleGithubClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleViewAllProjects = () => {
+    window.open('https://github.com/BiktaMohamed', '_blank', 'noopener,noreferrer');
+    toast({
+      title: '🔗 Redirecting to GitHub',
+      description: 'Opening your GitHub profile...',
     });
   };
 
@@ -184,26 +197,22 @@ const ProjectsSection = () => {
                     initial={{ opacity: 0 }}
                     className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent z-20 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
-                    <motion.a
-                      href={project.demoUrl}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleDemoClick(project.title);
-                      }}
+                    <motion.button
+                      onClick={() => handleDemoClick(project.demoUrl, project.title)}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       className="p-3 bg-primary rounded-full text-primary-foreground shadow-lg hover:shadow-primary/50 transition-shadow"
                     >
                       <ExternalLink className="w-5 h-5" />
-                    </motion.a>
-                    <motion.a
-                      href={project.githubUrl}
+                    </motion.button>
+                    <motion.button
+                      onClick={() => handleGithubClick(project.githubUrl)}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       className="p-3 bg-card border border-border rounded-full text-foreground shadow-lg hover:shadow-border/50 transition-shadow"
                     >
                       <Github className="w-5 h-5" />
-                    </motion.a>
+                    </motion.button>
                   </motion.div>
                 </div>
 
@@ -234,7 +243,7 @@ const ProjectsSection = () => {
                   <div className="flex gap-3 pt-2">
                     <Button
                       size="sm"
-                      onClick={() => handleDemoClick(project.title)}
+                      onClick={() => handleDemoClick(project.demoUrl, project.title)}
                       className="flex-1 bg-gradient-to-r from-primary to-cyan-400 hover:from-primary/90 hover:to-cyan-400/90 text-primary-foreground font-semibold gap-2 shadow-lg hover:shadow-primary/30 transition-shadow"
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -243,6 +252,7 @@ const ProjectsSection = () => {
                     <Button
                       size="sm"
                       variant="outline"
+                      onClick={() => handleGithubClick(project.githubUrl)}
                       className="border-border hover:bg-secondary gap-2"
                     >
                       <Github className="w-4 h-4" />
@@ -266,9 +276,10 @@ const ProjectsSection = () => {
           className="text-center"
         >
           <motion.button
+            onClick={handleViewAllProjects}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative px-8 py-4 rounded-2xl font-bold text-white overflow-hidden transition-all duration-300 shadow-2xl"
+            className="group relative px-8 py-4 rounded-2xl font-bold text-white overflow-hidden transition-all duration-300 shadow-2xl cursor-pointer"
           >
             {/* 3D layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-700 via-blue-700 to-cyan-700 rounded-2xl transform translate-y-2 group-hover:translate-y-1 transition-transform duration-200"></div>
@@ -286,7 +297,7 @@ const ProjectsSection = () => {
             
             <span className="relative flex items-center gap-3 z-10 text-base">
               <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-              View All Projects
+              View All Projects on GitHub
               <motion.span
                 className="inline-block"
                 animate={{ x: [0, 4, 0] }}
