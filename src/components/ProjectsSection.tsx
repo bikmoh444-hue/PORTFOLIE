@@ -8,7 +8,6 @@ import anwalDeRome from '@/assets/projects/anwal-de-rome.png';
 import dindeSahara from '@/assets/projects/dinde-sahara.png';
 import Portfolio from '@/assets/projects/Portfolio-Website.png';
 
-
 const projects = [
   {
     title: 'Anwal de Rome',
@@ -35,7 +34,7 @@ const projects = [
   {
     title: 'Portfolio Website',
     description: 'This personal portfolio built with modern technologies, featuring smooth animations, responsive design, glassmorphism effects, and a stunning dark theme.',
-    image: null,
+    image: Portfolio,
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Git'],
     demoUrl: 'https://portfolie-sooty.vercel.app/',
     githubUrl: 'https://github.com/BiktaMohamed/portfolio',
