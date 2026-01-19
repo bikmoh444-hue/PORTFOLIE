@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { toast } from '@/hooks/use-toast';
 import anwalDeRome from '@/assets/projects/anwal-de-rome.png';
 import dindeSahara from '@/assets/projects/dinde-sahara.png';
+import Portfolio from '@/assets/projects/Portfolio-Website.png';
+
 
 const projects = [
   {
