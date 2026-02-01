@@ -84,7 +84,7 @@ const SkillsSection = () => {
         >
           <h3 className="text-lg font-semibold mb-6 text-center">Currently Working With</h3>
           <div className="flex flex-wrap justify-center gap-4">
-            {['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Git', 'MongoDB'].map((tech, index) => (
+            {['React', 'java script', 'CSS', 'html', 'SQL', 'MongoDB'].map((tech, index) => (
               <motion.div
                 key={tech}
                 initial={{ opacity: 0 }}
