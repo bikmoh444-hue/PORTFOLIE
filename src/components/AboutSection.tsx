@@ -12,14 +12,14 @@ const timelineItems = [
   },
   {
     year: '2023-Present',
-    title: 'ESTG Guelmim',
-    description: '2ème année - Génie Informatique, Dev Web Full Stack',
+    title: 'Ecole Supérieure de Technologies - Guelmim ',
+    description: '2ème année - Génie Informatique',
     icon: Code2,
   },
   {
     year: 'Active',
     title: 'Associations',
-    description: 'Active member in various student associations',
+    description: 'Active member in association la nouvelle generation sportive ',
     icon: Users,
   },
 ];
