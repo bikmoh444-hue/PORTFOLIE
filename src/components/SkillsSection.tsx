@@ -17,7 +17,7 @@ const skillCategories = [
   },
   {
     title: 'Tools & Others',
-    skills: ['Git', 'UML', 'XML', 'JSON', 'REST '],
+    skills: ['Git', 'UML', 'XML', 'JSON', ],
   },
 ];
 
