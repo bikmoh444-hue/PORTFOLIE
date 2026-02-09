@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { createClient } from '@supabase/supabase-js';
 
@@ -50,121 +50,96 @@ const Projects = () => {
 
   if (loading) {
     return (
-      <section id="projects" className="py-24 section-alt">
-        <div className="container mx-auto px-6 text-center">
-          <p>Loading projects...</p>
+      <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] flex items-center justify-center">
+        <div className="text-gray-400 text-2xl font-bold animate-pulse">
+          Loading projects...
         </div>
-      </section>
+      </div>
     );
   }
 
   return (
-    <section id="projects" className="py-24 section-alt">
-      <div className="container mx-auto px-6">
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] py-20 px-6">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Header - Our Projects */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="text-muted-foreground max-w-md mx-auto">
-            Some of my recent work that showcases my skills and passion
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
+            <span className="text-white">Our </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4a574] via-[#c77dff] to-[#e0aaff]">
+              Projects
+            </span>
+          </h1>
+          <p className="text-gray-400 text-lg md:text-xl">
+            Explore our portfolio of stunning digital experiences
           </p>
-          <div className="w-20 h-1 gradient-bg rounded-full mx-auto mt-4" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects Grid - 3 columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-16">
           {projects.map((project, index) => (
-            <motion.article
+            <motion.div
               key={project.id}
-              className="project-card group"
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+              className="group relative bg-[#0d0d0d] rounded-3xl overflow-hidden border border-[#1f1f1f] hover:border-[#c77dff]/40 transition-all duration-500 hover:shadow-2xl hover:shadow-[#c77dff]/20 hover:-translate-y-2"
             >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              {/* Image Section */}
+              <div className="relative h-[280px] overflow-hidden bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60" />
-                
-                {/* Quick links */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {project.live_url && (
-                    <motion.a
-                      href={project.live_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full glass-card flex items-center justify-center glow-hover"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </motion.a>
-                  )}
-                  {project.github_url && (
-                    <motion.a
-                      href={project.github_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full glass-card flex items-center justify-center glow-hover"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <Github className="w-4 h-4" />
-                    </motion.a>
-                  )}
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-60" />
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:gradient-text transition-all duration-300">
+              {/* Content Section */}
+              <div className="p-8">
+                {/* Title */}
+                <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4a574] via-[#c77dff] to-[#e0aaff] text-2xl font-bold mb-4 group-hover:from-[#e0aaff] group-hover:to-[#d4a574] transition-all duration-300">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+
+                {/* Description */}
+                <p className="text-gray-400 text-base leading-relaxed mb-6 line-clamp-3">
                   {project.description}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary"
+                      className="px-4 py-1.5 text-sm font-medium bg-[#1f1f1f] text-gray-300 rounded-full border border-gray-700 hover:border-[#c77dff]/50 hover:text-white transition-all duration-300"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* View project link */}
+                {/* View Project Link */}
                 {project.live_url && (
-                  <motion.a
+                  <a
                     href={project.live_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-[#d4a574] to-[#c77dff] font-semibold transition-all duration-300 group/link"
                   >
                     View Project
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.a>
+                    <ArrowRight className="w-5 h-5 text-[#c77dff] group-hover/link:translate-x-1 transition-transform duration-300" />
+                  </a>
                 )}
               </div>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

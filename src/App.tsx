@@ -39,7 +39,7 @@ function AppRoutes() {
       
       {/* Protected Admin Route */}
       <Route 
-        path="/hechamarj-port-05-bri" 
+        path="/bikta.admin" 
         element={
           <ProtectedRoute>
             <AdminDashboard />
