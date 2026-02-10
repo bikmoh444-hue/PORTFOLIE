@@ -27,7 +27,7 @@ export default function LoginPage() {
 
       if (data.user) {
         // Redirect to admin dashboard
-        navigate('/hechamarj-port-05-bri');
+        navigate('/bikta.admin');
       }
     } catch (err: any) {
       setError(err.message || 'Failed to login');

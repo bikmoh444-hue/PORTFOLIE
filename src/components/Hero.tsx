@@ -8,7 +8,7 @@ const Hero = () => {
   
   const defaultData = {
     greeting: "Hello, I'm",
-    name: "Hecham Arjdal",
+    name: "mohamed bikta",
     title: "Full Stack Developer",
     description: "Crafting digital experiences with clean code and creative design. Let's build something amazing together.",
     photo_url: "/assets/profile-photo.jpg",
@@ -68,6 +68,30 @@ const Hero = () => {
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
+  };
+
+  // Smooth scroll to projects section
+  const scrollToProjects = (e) => {
+    e.preventDefault();
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Smooth scroll to contact section
+  const scrollToContact = (e) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
@@ -198,7 +222,7 @@ const Hero = () => {
                           key={angle}
                           className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full bg-white"
                           style={{
-                            transform: `rotate(${angle}deg) translateY(-${window.innerWidth < 640 ? 135 : window.innerWidth < 1024 ? 155 : 175}px)`
+                            transform: `rotate(${angle}deg) translateY(-${typeof window !== 'undefined' && window.innerWidth < 640 ? 135 : typeof window !== 'undefined' && window.innerWidth < 1024 ? 155 : 175}px)`
                           }}
                         />
                       ))}
@@ -429,9 +453,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.7 }}
             >
-              <motion.a 
-                href="#projects" 
-                className="group relative px-8 py-4 rounded-lg font-bold overflow-hidden bg-white text-black"
+              <motion.button 
+                onClick={scrollToProjects}
+                className="group relative px-8 py-4 rounded-lg font-bold overflow-hidden bg-white text-black cursor-pointer"
                 whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(255, 255, 255, 0.3)' }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -456,18 +480,18 @@ const Hero = () => {
                 </span>
                 <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-black/20" />
                 <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-black/20" />
-              </motion.a>
+              </motion.button>
               
-              <motion.a 
-                href="#contact" 
-                className="relative px-8 py-4 rounded-lg font-bold border-2 border-white/40 bg-white/5 hover:bg-white/10 text-white transition-all overflow-hidden"
+              <motion.button 
+                onClick={scrollToContact}
+                className="relative px-8 py-4 rounded-lg font-bold border-2 border-white/40 bg-white/5 hover:bg-white/10 text-white transition-all overflow-hidden cursor-pointer"
                 whileHover={{ scale: 1.05, borderColor: 'rgba(255, 255, 255, 0.8)' }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="relative z-10">Contact Me</span>
                 <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-white/50" />
                 <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-white/50" />
-              </motion.a>
+              </motion.button>
             </motion.div>
           </motion.div>
         </div>
