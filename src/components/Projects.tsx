@@ -69,7 +69,7 @@ const Projects = () => {
         >
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
             <span className="text-white">Our </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4a574] via-[#c77dff] to-[#e0aaff]">
+            <span className="text-white">
               Projects
             </span>
           </h1>
@@ -86,7 +86,7 @@ const Projects = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="group relative bg-[#0d0d0d] rounded-3xl overflow-hidden border border-[#1f1f1f] hover:border-[#c77dff]/40 transition-all duration-500 hover:shadow-2xl hover:shadow-[#c77dff]/20 hover:-translate-y-2"
+              className="group relative bg-[#0d0d0d] rounded-3xl overflow-hidden border border-[#1f1f1f] hover:border-white/40 transition-all duration-500 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-2"
             >
               {/* Image Section */}
               <div className="relative h-[280px] overflow-hidden bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
@@ -101,7 +101,7 @@ const Projects = () => {
               {/* Content Section */}
               <div className="p-8">
                 {/* Title */}
-                <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4a574] via-[#c77dff] to-[#e0aaff] text-2xl font-bold mb-4 group-hover:from-[#e0aaff] group-hover:to-[#d4a574] transition-all duration-300">
+                <h3 className="text-white text-2xl font-bold mb-4 group-hover:text-gray-300 transition-all duration-300">
                   {project.title}
                 </h3>
 
@@ -115,7 +115,7 @@ const Projects = () => {
                   {project.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-1.5 text-sm font-medium bg-[#1f1f1f] text-gray-300 rounded-full border border-gray-700 hover:border-[#c77dff]/50 hover:text-white transition-all duration-300"
+                      className="px-4 py-1.5 text-sm font-medium bg-[#1f1f1f] text-gray-300 rounded-full border border-gray-700 hover:border-white/50 hover:text-white transition-all duration-300"
                     >
                       {tag}
                     </span>
@@ -128,10 +128,10 @@ const Projects = () => {
                     href={project.live_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-[#d4a574] to-[#c77dff] font-semibold transition-all duration-300 group/link"
+                    className="inline-flex items-center gap-2 text-white font-semibold transition-all duration-300 group/link"
                   >
                     View Project
-                    <ArrowRight className="w-5 h-5 text-[#c77dff] group-hover/link:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="w-5 h-5 text-white group-hover/link:translate-x-1 transition-transform duration-300" />
                   </a>
                 )}
               </div>

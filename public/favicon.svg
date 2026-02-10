@@ -1,31 +1,16 @@
 <svg
+  width="120"
+  height="120"
+  viewBox="0 0 120 120"
+  fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 200 120"
-  width="64"
-  height="64"
 >
-  <!-- B -->
+  <!-- Letter M -->
   <path
-    d="M20 20 H70 C90 20 95 35 85 45
-       C100 50 95 80 70 80 H20 Z
-       M40 35 H65
-       C75 35 75 50 65 50 H40 Z
-       M40 55 H65
-       C78 55 78 70 65 70 H40 Z"
-    fill="#F5C542"
-  />
-
-  <!-- M -->
-  <path
-    d="M95 80 V20 H115 L135 55 L155 20 H175 V80 H155 V45
-       L135 75 L115 45 V80 Z"
-    fill="#F5C542"
-  />
-
-  <!-- Lightning -->
-  <path
-    d="M110 90 L135 55 H120 L150 20
-       L140 55 H155 Z"
-    fill="#8B5CF6"
+    d="M20 95 V25 L60 65 L100 25 V95"
+    stroke="black"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   />
 </svg>

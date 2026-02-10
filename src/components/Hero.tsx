@@ -71,12 +71,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       
       {/* Animated Grid Background */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(rgba(244, 162, 97, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(199, 125, 255, 0.1) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
           backgroundSize: '50px 50px'
         }} />
       </div>
@@ -94,7 +94,7 @@ const Hero = () => {
             animate={{
               y: [0, -100, 0],
               rotate: [0, 360],
-              opacity: [0.05, 0.15, 0.05]
+              opacity: [0.03, 0.08, 0.03]
             }}
             transition={{
               duration: 10 + i * 2,
@@ -102,22 +102,22 @@ const Hero = () => {
               delay: i * 1.5,
             }}
           >
-            <Hexagon className="w-20 h-20" style={{ color: i % 2 === 0 ? '#f4a261' : '#c77dff' }} />
+            <Hexagon className="w-20 h-20 text-white" />
           </motion.div>
         ))}
       </div>
 
-      {/* Gold-Purple Energy Waves */}
+      {/* Subtle Light Wave */}
       <motion.div 
         className="absolute top-0 left-0 w-full h-full"
         style={{
-          background: 'radial-gradient(circle at 30% 50%, rgba(244, 162, 97, 0.08) 0%, transparent 50%)'
+          background: 'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)'
         }}
         animate={{
           background: [
-            'radial-gradient(circle at 30% 50%, rgba(244, 162, 97, 0.08) 0%, transparent 50%)',
-            'radial-gradient(circle at 70% 50%, rgba(199, 125, 255, 0.08) 0%, transparent 50%)',
-            'radial-gradient(circle at 30% 50%, rgba(244, 162, 97, 0.08) 0%, transparent 50%)'
+            'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)',
+            'radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%)',
+            'radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)'
           ]
         }}
         transition={{ duration: 10, repeat: Infinity }}
@@ -146,17 +146,16 @@ const Hero = () => {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               {/* 3D Card Container */}
-              <div className="relative w-full h-full rounded-3xl overflow-hidden border-2 bg-gradient-to-br from-[#1a1a1a] via-[#0d0d0d] to-[#1a1a2e] backdrop-blur-xl shadow-2xl"
+              <div className="relative w-full h-full rounded-3xl overflow-hidden border-2 border-white/20 bg-gradient-to-br from-neutral-900 via-black to-neutral-900 backdrop-blur-xl shadow-2xl"
                 style={{ 
                   transformStyle: "preserve-3d",
-                  borderColor: 'rgba(244, 162, 97, 0.3)'
                 }}
               >
                 {/* Glowing Border Animation */}
                 <motion.div 
                   className="absolute inset-0 rounded-3xl"
                   style={{
-                    background: 'linear-gradient(90deg, transparent, rgba(244, 162, 97, 0.4), rgba(199, 125, 255, 0.4), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)',
                     backgroundSize: '200% 100%'
                   }}
                   animate={{ 
@@ -174,10 +173,10 @@ const Hero = () => {
                   <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <path d="M10 10h20v20h20v20h-20v20h-20z" fill="none" stroke="#f4a261" strokeWidth="1"/>
-                        <circle cx="10" cy="10" r="2" fill="#f4a261"/>
-                        <circle cx="30" cy="30" r="2" fill="#c77dff"/>
-                        <circle cx="50" cy="50" r="2" fill="#e9c46a"/>
+                        <path d="M10 10h20v20h20v20h-20v20h-20z" fill="none" stroke="#ffffff" strokeWidth="1"/>
+                        <circle cx="10" cy="10" r="2" fill="#ffffff"/>
+                        <circle cx="30" cy="30" r="2" fill="#ffffff"/>
+                        <circle cx="50" cy="50" r="2" fill="#ffffff"/>
                       </pattern>
                     </defs>
                     <rect width="100%" height="100%" fill="url(#circuit)"/>
@@ -190,17 +189,15 @@ const Hero = () => {
                     
                     {/* Rotating Tech Ring */}
                     <motion.div
-                      className="absolute inset-0 rounded-full"
-                      style={{ borderColor: 'rgba(244, 162, 97, 0.2)', borderWidth: '2px' }}
+                      className="absolute inset-0 rounded-full border-2 border-white/20"
                       animate={{ rotate: 360 }}
                       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     >
                       {[0, 90, 180, 270].map((angle) => (
                         <div
                           key={angle}
-                          className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full"
+                          className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full bg-white"
                           style={{
-                            backgroundColor: angle % 180 === 0 ? '#f4a261' : '#c77dff',
                             transform: `rotate(${angle}deg) translateY(-${window.innerWidth < 640 ? 135 : window.innerWidth < 1024 ? 155 : 175}px)`
                           }}
                         />
@@ -210,7 +207,7 @@ const Hero = () => {
                     {/* Pulsing Glow */}
                     <motion.div
                       className="absolute inset-0 rounded-full blur-2xl"
-                      style={{ background: 'radial-gradient(circle, rgba(244, 162, 97, 0.15), rgba(199, 125, 255, 0.15))' }}
+                      style={{ background: 'radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))' }}
                       animate={{ 
                         scale: [1, 1.3, 1],
                         opacity: [0.3, 0.6, 0.3]
@@ -220,16 +217,15 @@ const Hero = () => {
 
                     {/* Profile Image */}
                     <motion.div
-                      className="relative w-full h-full rounded-full overflow-hidden border-4 shadow-2xl"
+                      className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/50 shadow-2xl"
                       style={{ 
-                        borderColor: 'rgba(244, 162, 97, 0.5)',
-                        boxShadow: '0 20px 60px rgba(244, 162, 97, 0.3), 0 0 40px rgba(199, 125, 255, 0.2)'
+                        boxShadow: '0 20px 60px rgba(255, 255, 255, 0.2)'
                       }}
                       whileHover={{ scale: 1.05 }}
                     >
                       {loading ? (
-                        <div className="w-full h-full flex items-center justify-center bg-[#0d0d0d]">
-                          <Cpu className="w-12 h-12 text-[#f4a261] animate-spin" />
+                        <div className="w-full h-full flex items-center justify-center bg-black">
+                          <Cpu className="w-12 h-12 text-white animate-spin" />
                         </div>
                       ) : (
                         <img
@@ -237,7 +233,7 @@ const Hero = () => {
                           alt={displayData.name}
                           className="w-full h-full object-cover"
                           onError={(e) => {
-                            e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Ccircle cx="200" cy="200" r="200" fill="%230d0d0d"/%3E%3Ctext fill="%23f4a261" font-family="system-ui" font-size="24" font-weight="600" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3EProfile%3C/text%3E%3C/svg%3E';
+                            e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Ccircle cx="200" cy="200" r="200" fill="%23000000"/%3E%3Ctext fill="%23ffffff" font-family="system-ui" font-size="24" font-weight="600" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3EProfile%3C/text%3E%3C/svg%3E';
                           }}
                         />
                       )}
@@ -246,24 +242,24 @@ const Hero = () => {
                 </div>
 
                 {/* Corner Accent - Top Left */}
-                <div className="absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 rounded-tl-xl" style={{ borderColor: 'rgba(244, 162, 97, 0.5)' }} />
+                <div className="absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 border-white/50 rounded-tl-xl" />
                 {/* Corner Accent - Bottom Right */}
-                <div className="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 rounded-br-xl" style={{ borderColor: 'rgba(199, 125, 255, 0.5)' }} />
+                <div className="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-white/50 rounded-br-xl" />
 
                 {/* Status Indicator */}
-                <div className="absolute top-6 right-6 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0d0d0d]/80 border" style={{ borderColor: 'rgba(244, 162, 97, 0.3)' }}>
+                <div className="absolute top-6 right-6 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/80 border border-white/30">
                   <motion.div 
-                    className="w-2 h-2 rounded-full bg-[#f4a261]"
+                    className="w-2 h-2 rounded-full bg-white"
                     animate={{ 
                       boxShadow: [
-                        '0 0 0px rgba(244, 162, 97, 0.8)',
-                        '0 0 15px rgba(244, 162, 97, 0.8)',
-                        '0 0 0px rgba(244, 162, 97, 0.8)'
+                        '0 0 0px rgba(255, 255, 255, 0.8)',
+                        '0 0 15px rgba(255, 255, 255, 0.8)',
+                        '0 0 0px rgba(255, 255, 255, 0.8)'
                       ]
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
-                  <span className="text-[#f4a261] text-xs font-bold">ACTIVE</span>
+                  <span className="text-white text-xs font-bold">ACTIVE</span>
                 </div>
               </div>
 
@@ -271,11 +267,10 @@ const Hero = () => {
               {[...Array(8)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full"
+                  className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full bg-white"
                   style={{
                     transformStyle: "preserve-3d",
                     translateZ: 50,
-                    backgroundColor: i % 2 === 0 ? '#f4a261' : '#c77dff'
                   }}
                   animate={{
                     x: [0, Math.cos(i * Math.PI / 4) * 150, 0],
@@ -293,7 +288,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT - TEXT CONTENT WITH TECH STYLE */}
+          {/* RIGHT - TEXT CONTENT */}
           <motion.div
             className="space-y-6 text-center lg:text-left max-w-xl"
             initial={{ opacity: 0, x: 100 }}
@@ -303,11 +298,7 @@ const Hero = () => {
             
             {/* Tech Greeting Badge */}
             <motion.div
-              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border backdrop-blur-md"
-              style={{
-                background: 'linear-gradient(90deg, rgba(244, 162, 97, 0.15), rgba(199, 125, 255, 0.15))',
-                borderColor: 'rgba(244, 162, 97, 0.3)'
-              }}
+              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/30 backdrop-blur-md bg-white/5"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.5, type: "spring" }}
@@ -316,21 +307,19 @@ const Hero = () => {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               >
-                <Zap className="w-4 h-4 text-[#f4a261]" />
+                <Zap className="w-4 h-4 text-white" />
               </motion.div>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f4a261] to-[#c77dff] font-bold text-sm tracking-widest uppercase">
+              <span className="text-white font-bold text-sm tracking-widest uppercase">
                 {displayData.greeting}
               </span>
               <motion.div
-                className="w-px h-4"
-                style={{ backgroundColor: 'rgba(244, 162, 97, 0.5)' }}
+                className="w-px h-4 bg-white/50"
               />
               <div className="flex gap-1">
                 {[...Array(3)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className="w-1 h-3 rounded-full"
-                    style={{ backgroundColor: i % 2 === 0 ? '#f4a261' : '#c77dff' }}
+                    className="w-1 h-3 rounded-full bg-white"
                     animate={{ 
                       scaleY: [1, 1.5, 1]
                     }}
@@ -344,26 +333,16 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Name - Glitch Effect */}
+            {/* Name */}
             <motion.h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight relative"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              <motion.span 
-                className="inline-block bg-gradient-to-r from-[#f4a261] via-[#e9c46a] via-[#c77dff] to-[#e0aaff] bg-clip-text text-transparent relative"
-                style={{ 
-                  backgroundSize: '200% auto',
-                  textShadow: '0 0 30px rgba(244, 162, 97, 0.4)'
-                }}
-                animate={{ 
-                  backgroundPosition: ['0% center', '200% center', '0% center']
-                }}
-                transition={{ duration: 5, repeat: Infinity }}
-              >
+              <span className="inline-block text-white relative" style={{ textShadow: '0 0 30px rgba(255, 255, 255, 0.3)' }}>
                 {loading ? "Loading..." : displayData.name}
-              </motion.span>
+              </span>
             </motion.h1>
 
             {/* Title with Line */}
@@ -375,7 +354,7 @@ const Hero = () => {
             >
               <div className="flex items-center gap-3 justify-center lg:justify-start">
                 <motion.div 
-                  className="h-px w-12 bg-gradient-to-r from-transparent to-[#f4a261]"
+                  className="h-px w-12 bg-gradient-to-r from-transparent to-white"
                   animate={{ 
                     width: ['3rem', '4rem', '3rem']
                   }}
@@ -385,7 +364,7 @@ const Hero = () => {
                   {loading ? "..." : displayData.title}
                 </h2>
                 <motion.div 
-                  className="h-px w-12 bg-gradient-to-l from-transparent to-[#c77dff]"
+                  className="h-px w-12 bg-gradient-to-l from-transparent to-white"
                   animate={{ 
                     width: ['3rem', '4rem', '3rem']
                   }}
@@ -404,7 +383,7 @@ const Hero = () => {
               {loading ? "Loading..." : displayData.description}
             </motion.p>
 
-            {/* Social Links - Tech Grid */}
+            {/* Social Links */}
             <motion.div
               className="grid grid-cols-5 gap-3 max-w-sm mx-auto lg:mx-0 pt-4"
               initial={{ opacity: 0, y: 20 }}
@@ -417,38 +396,33 @@ const Hero = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative aspect-square rounded-lg bg-[#0d0d0d]/80 border backdrop-blur-sm flex items-center justify-center overflow-hidden"
-                  style={{ borderColor: 'rgba(244, 162, 97, 0.2)' }}
+                  className="group relative aspect-square rounded-lg bg-black/80 border border-white/20 backdrop-blur-sm flex items-center justify-center overflow-hidden"
                   whileHover={{ 
                     scale: 1.15,
                     rotate: 5,
-                    borderColor: 'rgba(244, 162, 97, 0.6)'
+                    borderColor: 'rgba(255, 255, 255, 0.6)'
                   }}
                   whileTap={{ scale: 0.9 }}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.5 + index * 0.1, type: "spring" }}
                 >
-                  {/* Tech corner accents */}
-                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l" style={{ borderColor: 'rgba(244, 162, 97, 0.4)' }} />
-                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r" style={{ borderColor: 'rgba(199, 125, 255, 0.4)' }} />
+                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/40" />
+                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/40" />
                   
                   <motion.div 
-                    className="absolute inset-0"
-                    style={{ background: 'linear-gradient(135deg, rgba(244, 162, 97, 0), rgba(199, 125, 255, 0))' }}
-                    whileHover={{ background: 'linear-gradient(135deg, rgba(244, 162, 97, 0.2), rgba(199, 125, 255, 0.2))' }}
+                    className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors"
                   />
-                  <social.icon className="w-5 h-5 text-gray-500 group-hover:text-[#f4a261] transition-colors relative z-10" />
+                  <social.icon className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors relative z-10" />
                   
                   <motion.div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-lg"
-                    style={{ background: 'rgba(244, 162, 97, 0.3)' }}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 blur-lg bg-white/20"
                   />
                 </motion.a>
               ))}
             </motion.div>
 
-            {/* CTA Buttons - Tech Style */}
+            {/* CTA Buttons */}
             <motion.div
               className="flex flex-col sm:flex-row gap-4 pt-6"
               initial={{ opacity: 0, y: 20 }}
@@ -457,14 +431,14 @@ const Hero = () => {
             >
               <motion.a 
                 href="#projects" 
-                className="group relative px-8 py-4 rounded-lg font-bold overflow-hidden bg-gradient-to-r from-[#f4a261] via-[#e9c46a] to-[#c77dff] text-white"
-                whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(244, 162, 97, 0.4)' }}
+                className="group relative px-8 py-4 rounded-lg font-bold overflow-hidden bg-white text-black"
+                whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(255, 255, 255, 0.3)' }}
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div 
                   className="absolute inset-0"
                   style={{
-                    background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                    background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent)',
                     backgroundSize: '200% 100%'
                   }}
                   animate={{ 
@@ -480,20 +454,19 @@ const Hero = () => {
                   <Cpu className="w-5 h-5" />
                   View Projects
                 </span>
-                <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-white/30 opacity-50" />
-                <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-white/30 opacity-50" />
+                <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-black/20" />
+                <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-black/20" />
               </motion.a>
               
               <motion.a 
                 href="#contact" 
-                className="relative px-8 py-4 rounded-lg font-bold border-2 bg-[#f4a261]/5 hover:bg-[#f4a261]/10 text-white transition-all overflow-hidden"
-                style={{ borderColor: 'rgba(244, 162, 97, 0.4)' }}
-                whileHover={{ scale: 1.05, borderColor: 'rgba(244, 162, 97, 0.8)' }}
+                className="relative px-8 py-4 rounded-lg font-bold border-2 border-white/40 bg-white/5 hover:bg-white/10 text-white transition-all overflow-hidden"
+                whileHover={{ scale: 1.05, borderColor: 'rgba(255, 255, 255, 0.8)' }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="relative z-10">Contact Me</span>
-                <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2" style={{ borderColor: 'rgba(244, 162, 97, 0.5)' }} />
-                <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2" style={{ borderColor: 'rgba(199, 125, 255, 0.5)' }} />
+                <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-white/50" />
+                <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-white/50" />
               </motion.a>
             </motion.div>
           </motion.div>
@@ -502,7 +475,7 @@ const Hero = () => {
 
       {/* Scan Line Effect */}
       <motion.div
-        className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#f4a261] to-transparent"
+        className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-white to-transparent"
         animate={{ 
           y: ['0vh', '100vh']
         }}
@@ -514,7 +487,7 @@ const Hero = () => {
       />
 
       {/* Bottom Tech Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#c77dff]/50 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
     </section>
   );
 };

@@ -60,8 +60,8 @@ const PremiumLoadingScreen = () => {
               className="absolute inset-0"
               style={{
                 backgroundImage: `
-                  linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)
+                  linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px)
                 `,
                 backgroundSize: '50px 50px',
                 animation: 'gridMove 20s linear infinite'
@@ -78,8 +78,8 @@ const PremiumLoadingScreen = () => {
                 width: `${150 + i * 50}px`,
                 height: `${150 + i * 50}px`,
                 background: i % 2 === 0 
-                  ? 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)'
-                  : 'radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%)',
+                  ? 'radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%)'
+                  : 'radial-gradient(circle, rgba(200, 200, 200, 0.3) 0%, transparent 70%)',
                 left: `${20 + i * 15}%`,
                 top: `${10 + i * 12}%`,
               }}
@@ -102,7 +102,7 @@ const PremiumLoadingScreen = () => {
             <div className="relative">
               {/* Outer Rotating Ring */}
               <motion.div
-                className="absolute inset-0 w-56 h-56 rounded-full border-2 border-blue-500/30"
+                className="absolute inset-0 w-56 h-56 rounded-full border-2 border-white/30"
                 style={{ borderStyle: 'dashed' }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -110,14 +110,14 @@ const PremiumLoadingScreen = () => {
               
               {/* Middle Ring */}
               <motion.div
-                className="absolute inset-4 rounded-full border border-purple-500/40"
+                className="absolute inset-4 rounded-full border border-gray-400/40"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
               />
 
               {/* Pulsing Glow */}
               <motion.div
-                className="absolute inset-8 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl"
+                className="absolute inset-8 rounded-full bg-white/20 blur-xl"
                 animate={{ 
                   scale: [1, 1.2, 1],
                   opacity: [0.5, 0.8, 0.5]
@@ -133,18 +133,18 @@ const PremiumLoadingScreen = () => {
                 transition={{ duration: 0.8, type: "spring" }}
               >
                 <motion.div
-                  className="w-40 h-40 rounded-2xl bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-blue-800/20 flex items-center justify-center shadow-2xl shadow-blue-500/50 backdrop-blur-sm border border-blue-500/30"
+                  className="w-40 h-40 rounded-2xl bg-gradient-to-br from-white/20 via-gray-400/20 to-white/20 flex items-center justify-center shadow-2xl shadow-white/50 backdrop-blur-sm border border-white/30"
                   animate={{ 
                     boxShadow: [
-                      "0 0 20px rgba(59, 130, 246, 0.3)",
-                      "0 0 40px rgba(139, 92, 246, 0.5)",
-                      "0 0 20px rgba(59, 130, 246, 0.3)"
+                      "0 0 20px rgba(255, 255, 255, 0.3)",
+                      "0 0 40px rgba(255, 255, 255, 0.5)",
+                      "0 0 20px rgba(255, 255, 255, 0.3)"
                     ]
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   <img
-                    src="https://i.ibb.co/1G4PnVNq/logo-portfolio.png"
+                    src="https://i.ibb.co/SDvgWSQ7/LOGO-BIKTA.png"
                     alt="BIKTA Logo"
                     className="w-32 h-32 object-contain"
                   />
@@ -155,7 +155,7 @@ const PremiumLoadingScreen = () => {
               {[0, 90, 180, 270].map((rotation, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-8 h-8 border-t-2 border-l-2 border-blue-400"
+                  className="absolute w-8 h-8 border-t-2 border-l-2 border-white"
                   style={{
                     top: rotation === 0 || rotation === 90 ? '-12px' : 'auto',
                     bottom: rotation === 180 || rotation === 270 ? '-12px' : 'auto',
@@ -180,7 +180,7 @@ const PremiumLoadingScreen = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
                   {loadingMessages[loadingPhase]}
                 </span>
               </motion.div>
@@ -190,7 +190,7 @@ const PremiumLoadingScreen = () => {
                 {[0, 1, 2].map((i) => (
                   <motion.div
                     key={i}
-                    className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
+                    className="w-3 h-3 rounded-full bg-white"
                     animate={{ 
                       scale: [1, 1.5, 1],
                       opacity: [0.5, 1, 0.5]
@@ -209,14 +209,14 @@ const PremiumLoadingScreen = () => {
                 className="font-mono text-5xl font-bold"
                 animate={{ 
                   textShadow: [
-                    "0 0 10px rgba(59, 130, 246, 0.5)",
-                    "0 0 20px rgba(139, 92, 246, 0.5)",
-                    "0 0 10px rgba(59, 130, 246, 0.5)"
+                    "0 0 10px rgba(255, 255, 255, 0.5)",
+                    "0 0 20px rgba(255, 255, 255, 0.5)",
+                    "0 0 10px rgba(255, 255, 255, 0.5)"
                   ]
                 }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                   {Math.floor(progress)}%
                 </span>
               </motion.div>
@@ -227,14 +227,14 @@ const PremiumLoadingScreen = () => {
                 <div className="h-2 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
                   {/* Animated Glow */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                     animate={{ x: ['-100%', '200%'] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                   />
                   
                   {/* Progress Fill */}
                   <motion.div
-                    className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 relative"
+                    className="h-full bg-gradient-to-r from-white via-gray-300 to-white relative"
                     style={{ width: `${progress}%` }}
                     initial={{ width: 0 }}
                   >
@@ -258,12 +258,12 @@ const PremiumLoadingScreen = () => {
               {/* Status Indicator */}
               <div className="flex items-center gap-3 font-mono text-sm text-slate-400">
                 <motion.div
-                  className="w-2 h-2 rounded-full bg-green-400"
+                  className="w-2 h-2 rounded-full bg-white"
                   animate={{ 
                     boxShadow: [
-                      "0 0 5px rgba(74, 222, 128, 0.5)",
-                      "0 0 20px rgba(74, 222, 128, 0.8)",
-                      "0 0 5px rgba(74, 222, 128, 0.5)"
+                      "0 0 5px rgba(255, 255, 255, 0.5)",
+                      "0 0 20px rgba(255, 255, 255, 0.8)",
+                      "0 0 5px rgba(255, 255, 255, 0.5)"
                     ]
                   }}
                   transition={{ duration: 1, repeat: Infinity }}
@@ -274,7 +274,7 @@ const PremiumLoadingScreen = () => {
 
           </div>
 
-          <style >{`
+          <style>{`
             @keyframes gridMove {
               0% { transform: translate(0, 0); }
               100% { transform: translate(50px, 50px); }

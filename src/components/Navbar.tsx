@@ -66,9 +66,9 @@ const Navbar = () => {
             ? 'rgba(0, 0, 0, 0.95)' 
             : 'rgba(0, 0, 0, 0.85)',
           backdropFilter: 'blur(20px)',
-          borderBottom: scrolled ? '2px solid rgba(251, 191, 36, 0.3)' : '2px solid rgba(251, 191, 36, 0.1)',
+          borderBottom: scrolled ? '2px solid rgba(255, 255, 255, 0.3)' : '2px solid rgba(255, 255, 255, 0.1)',
           boxShadow: scrolled 
-            ? '0 10px 40px rgba(251, 191, 36, 0.2), inset 0 1px 0 rgba(251, 191, 36, 0.1)' 
+            ? '0 10px 40px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05)' 
             : '0 5px 20px rgba(0, 0, 0, 0.3)',
         }}
         initial={{ y: -100, opacity: 0 }}
@@ -101,25 +101,25 @@ const Navbar = () => {
               <motion.div
                 className="absolute inset-0 rounded-full blur-xl opacity-0"
                 style={{
-                  background: 'radial-gradient(circle, rgba(251, 191, 36, 0.4), transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%)',
                 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               />
               
               <motion.img 
-                src="https://i.ibb.co/1G4PnVNq/logo-portfolio.png" 
+                src="https://i.ibb.co/SDvgWSQ7/LOGO-BIKTA.png" 
                 alt="Portfolio Logo" 
                 className="h-12 sm:h-14 w-auto object-contain relative z-10"
                 style={{
-                  filter: 'drop-shadow(0 0 15px rgba(251, 191, 36, 0.6))',
+                  filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.5))',
                   transform: 'translateZ(20px)',
                 }}
                 animate={{
                   filter: [
-                    'drop-shadow(0 0 15px rgba(251, 191, 36, 0.6))',
-                    'drop-shadow(0 0 25px rgba(251, 191, 36, 0.8))',
-                    'drop-shadow(0 0 15px rgba(251, 191, 36, 0.6))',
+                    'drop-shadow(0 0 15px rgba(255, 255, 255, 0.5))',
+                    'drop-shadow(0 0 25px rgba(255, 255, 255, 0.7))',
+                    'drop-shadow(0 0 15px rgba(255, 255, 255, 0.5))',
                   ]
                 }}
                 transition={{
@@ -141,7 +141,7 @@ const Navbar = () => {
                     href={item.href}
                     className="relative px-6 py-3 font-bold transition-all duration-300 overflow-hidden rounded-xl group"
                     style={{
-                      color: isActive ? '#000' : '#fbbf24',
+                      color: isActive ? '#000' : '#fff',
                       transformStyle: 'preserve-3d',
                       perspective: 1000,
                     }}
@@ -165,16 +165,16 @@ const Navbar = () => {
                       className="absolute inset-0 rounded-xl"
                       style={{
                         background: isActive 
-                          ? 'linear-gradient(135deg, #fbbf24, #f59e0b)'
+                          ? 'linear-gradient(135deg, #fff, #e5e5e5)'
                           : 'transparent',
                         boxShadow: isActive 
-                          ? '0 10px 30px rgba(251, 191, 36, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                          ? '0 10px 30px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
                           : '0 0 0 transparent',
                         transform: 'translateZ(-10px)',
                       }}
                       whileHover={!isActive ? {
-                        background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.15))',
-                        boxShadow: '0 5px 20px rgba(251, 191, 36, 0.2)',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15))',
+                        boxShadow: '0 5px 20px rgba(255, 255, 255, 0.2)',
                       } : {}}
                       transition={{ duration: 0.3 }}
                     />
@@ -182,7 +182,7 @@ const Navbar = () => {
                     {/* Animated shine effect */}
                     {isActive && (
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent"
                         animate={{ x: ['-200%', '200%'] }}
                         transition={{
                           duration: 2,
@@ -223,7 +223,7 @@ const Navbar = () => {
                     <motion.div
                       className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 -z-10 blur-xl"
                       style={{
-                        background: 'radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent 70%)',
+                        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%)',
                       }}
                       transition={{ duration: 0.3 }}
                     />
@@ -238,12 +238,12 @@ const Navbar = () => {
                 className="p-3 rounded-xl relative overflow-hidden"
                 style={{
                   background: mobileMenuOpen 
-                    ? 'linear-gradient(135deg, #fbbf24, #f59e0b)' 
-                    : 'rgba(251, 191, 36, 0.1)',
-                  border: '2px solid rgba(251, 191, 36, 0.3)',
+                    ? 'linear-gradient(135deg, #fff, #e5e5e5)' 
+                    : 'rgba(255, 255, 255, 0.1)',
+                  border: '2px solid rgba(255, 255, 255, 0.3)',
                   boxShadow: mobileMenuOpen 
-                    ? '0 10px 30px rgba(251, 191, 36, 0.4)'
-                    : '0 5px 15px rgba(251, 191, 36, 0.2)',
+                    ? '0 10px 30px rgba(255, 255, 255, 0.3)'
+                    : '0 5px 15px rgba(255, 255, 255, 0.1)',
                   transformStyle: 'preserve-3d',
                 }}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -265,7 +265,7 @@ const Navbar = () => {
                   {mobileMenuOpen ? (
                     <X className="w-6 h-6" style={{ color: '#000' }} />
                   ) : (
-                    <Menu className="w-6 h-6 text-yellow-400" />
+                    <Menu className="w-6 h-6 text-white" />
                   )}
                 </motion.div>
 
@@ -273,7 +273,7 @@ const Navbar = () => {
                 <motion.div
                   className="absolute -inset-1 rounded-xl opacity-50 -z-10 blur-lg"
                   style={{
-                    background: 'radial-gradient(circle, rgba(251, 191, 36, 0.6), transparent 70%)',
+                    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%)',
                   }}
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -309,9 +309,9 @@ const Navbar = () => {
             
             {/* Animated background orbs */}
             <motion.div
-              className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl"
+              className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl"
               style={{
-                background: 'radial-gradient(circle, #fbbf24, transparent)',
+                background: 'radial-gradient(circle, #fff, transparent)',
               }}
               animate={{
                 x: [0, 50, 0],
@@ -337,10 +337,10 @@ const Navbar = () => {
                 <div 
                   className="rounded-3xl p-8 space-y-3"
                   style={{
-                    background: 'rgba(251, 191, 36, 0.05)',
+                    background: 'rgba(255, 255, 255, 0.05)',
                     backdropFilter: 'blur(20px)',
-                    border: '2px solid rgba(251, 191, 36, 0.2)',
-                    boxShadow: '0 20px 60px rgba(251, 191, 36, 0.3), inset 0 1px 0 rgba(251, 191, 36, 0.1)',
+                    border: '2px solid rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 20px 60px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
                   }}
                 >
                   {/* Navigation Links */}
@@ -355,12 +355,12 @@ const Navbar = () => {
                         className="block px-6 py-4 rounded-2xl text-lg font-bold transition-all duration-300 relative overflow-hidden"
                         style={{
                           background: isActive 
-                            ? 'linear-gradient(135deg, #fbbf24, #f59e0b)' 
-                            : 'rgba(251, 191, 36, 0.05)',
-                          color: isActive ? '#000' : '#fbbf24',
-                          border: `2px solid ${isActive ? 'rgba(251, 191, 36, 0.5)' : 'rgba(251, 191, 36, 0.2)'}`,
+                            ? 'linear-gradient(135deg, #fff, #e5e5e5)' 
+                            : 'rgba(255, 255, 255, 0.05)',
+                          color: isActive ? '#000' : '#fff',
+                          border: `2px solid ${isActive ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.2)'}`,
                           boxShadow: isActive 
-                            ? '0 10px 30px rgba(251, 191, 36, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)' 
+                            ? '0 10px 30px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3)' 
                             : '0 5px 15px rgba(0, 0, 0, 0.2)',
                           transformStyle: 'preserve-3d',
                         }}
@@ -375,14 +375,14 @@ const Navbar = () => {
                           scale: 1.05,
                           x: 10,
                           rotateY: 5,
-                          boxShadow: '0 15px 40px rgba(251, 191, 36, 0.5)',
+                          boxShadow: '0 15px 40px rgba(255, 255, 255, 0.4)',
                         }}
                         whileTap={{ scale: 0.95 }}
                       >
                         {/* Shine effect */}
                         {isActive && (
                           <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-transparent"
                             animate={{ x: ['-200%', '200%'] }}
                             transition={{
                               duration: 2,

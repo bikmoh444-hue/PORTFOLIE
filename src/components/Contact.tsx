@@ -129,40 +129,40 @@ const Contact = () => {
         >
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
             <span className="text-white">Get In </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4a574] via-[#c77dff] to-[#e0aaff]">
+            <span className="text-white">
               Touch
             </span>
           </h1>
           <p className="text-gray-400 text-lg md:text-xl">
             Have a project in mind? Let's work together and create something amazing.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#d4a574] to-[#c77dff] rounded-full mx-auto mt-6" />
+          <div className="w-24 h-1 bg-white rounded-full mx-auto mt-6" />
         </motion.div>
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
           {/* Contact Info Section */}
           <motion.div
-            className="bg-[#0d0d0d] rounded-3xl p-8 border border-[#1f1f1f] hover:border-[#c77dff]/40 transition-all duration-500"
+            className="bg-[#0d0d0d] rounded-3xl p-8 border border-[#1f1f1f] hover:border-white/40 transition-all duration-500"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#d4a574] to-[#c77dff] flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-black" />
               </div>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4a574] to-[#c77dff]">
+              <span className="text-white">
                 Let's Connect
               </span>
             </h3>
 
             {profile?.location && (
-              <div className="mb-8 p-6 rounded-2xl bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-[#c77dff]/20">
-                <p className="text-sm text-gray-500 mb-2">Location</p>
+              <div className="mb-8 p-6 rounded-2xl bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-white/20">
+                <p className="text-sm text-gray-500 mb-2">Localisation</p>
                 <p className="text-lg font-medium text-white flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-[#c77dff]" />
+                  <MapPin className="w-5 h-5 text-white" />
                   {profile.location}
                 </p>
               </div>
@@ -176,19 +176,19 @@ const Contact = () => {
                     href={contact.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-5 rounded-2xl bg-[#1a1a1a] hover:bg-[#1f1f1f] border border-[#2a2a2a] hover:border-[#c77dff]/40 transition-all duration-300 group"
+                    className="flex items-center gap-4 p-5 rounded-2xl bg-[#1a1a1a] hover:bg-[#1f1f1f] border border-[#2a2a2a] hover:border-white/40 transition-all duration-300 group"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ x: 5 }}
                   >
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-r from-[#d4a574] to-[#c77dff] flex items-center justify-center flex-shrink-0">
-                      <contact.icon className="w-6 h-6 text-white" />
+                    <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                      <contact.icon className="w-6 h-6 text-black" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm text-gray-500 mb-1">{contact.label}</p>
-                      <p className="text-base font-medium text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#d4a574] group-hover:to-[#c77dff] transition-all duration-300 break-all">
+                      <p className="text-base font-medium text-white group-hover:text-gray-300 transition-all duration-300 break-all">
                         {contact.value}
                       </p>
                     </div>
@@ -204,17 +204,17 @@ const Contact = () => {
 
           {/* Contact Form Section */}
           <motion.div
-            className="bg-[#0d0d0d] rounded-3xl p-8 border border-[#1f1f1f] hover:border-[#c77dff]/40 transition-all duration-500"
+            className="bg-[#0d0d0d] rounded-3xl p-8 border border-[#1f1f1f] hover:border-white/40 transition-all duration-500"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#d4a574] to-[#c77dff] flex items-center justify-center">
-                <Send className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                <Send className="w-6 h-6 text-black" />
               </div>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4a574] to-[#c77dff]">
+              <span className="text-white">
                 Send a Message
               </span>
             </h3>
@@ -227,7 +227,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="w-full px-6 py-4 rounded-2xl bg-[#1a1a1a] border border-[#2a2a2a] focus:border-[#c77dff] focus:outline-none focus:ring-2 focus:ring-[#c77dff]/20 transition-all duration-300 text-white placeholder:text-gray-600"
+                  className="w-full px-6 py-4 rounded-2xl bg-[#1a1a1a] border border-[#2a2a2a] focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 text-white placeholder:text-gray-600"
                 />
               </div>
               <div>
@@ -237,7 +237,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="w-full px-6 py-4 rounded-2xl bg-[#1a1a1a] border border-[#2a2a2a] focus:border-[#c77dff] focus:outline-none focus:ring-2 focus:ring-[#c77dff]/20 transition-all duration-300 text-white placeholder:text-gray-600"
+                  className="w-full px-6 py-4 rounded-2xl bg-[#1a1a1a] border border-[#2a2a2a] focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 text-white placeholder:text-gray-600"
                 />
               </div>
               <div>
@@ -247,13 +247,13 @@ const Contact = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
-                  className="w-full px-6 py-4 rounded-2xl bg-[#1a1a1a] border border-[#2a2a2a] focus:border-[#c77dff] focus:outline-none focus:ring-2 focus:ring-[#c77dff]/20 transition-all duration-300 resize-none text-white placeholder:text-gray-600"
+                  className="w-full px-6 py-4 rounded-2xl bg-[#1a1a1a] border border-[#2a2a2a] focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-300 resize-none text-white placeholder:text-gray-600"
                 />
               </div>
               <motion.button
                 type="submit"
                 disabled={loading}
-                className="w-full px-8 py-4 rounded-2xl bg-gradient-to-r from-[#d4a574] to-[#c77dff] text-white font-semibold text-lg flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-2xl hover:shadow-[#c77dff]/40 transition-all duration-300"
+                className="w-full px-8 py-4 rounded-2xl bg-white text-black font-semibold text-lg flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-2xl hover:shadow-white/40 transition-all duration-300"
                 whileHover={{ scale: loading ? 1 : 1.02 }}
                 whileTap={{ scale: loading ? 1 : 0.98 }}
               >
