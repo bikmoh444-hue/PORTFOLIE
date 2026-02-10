@@ -32,7 +32,7 @@ const About = () => {
     },
     { 
       icon: MapPin, 
-      label: "Location", 
+      label: "Localisation", 
       value: profile.location || "San Francisco",
     },
     { 

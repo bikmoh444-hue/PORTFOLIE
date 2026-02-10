@@ -8,7 +8,7 @@ const Hero = () => {
   
   const defaultData = {
     greeting: "Hello, I'm",
-    name: "mohamed bikta",
+    name: "Hecham Arjdal",
     title: "Full Stack Developer",
     description: "Crafting digital experiences with clean code and creative design. Let's build something amazing together.",
     photo_url: "/assets/profile-photo.jpg",
