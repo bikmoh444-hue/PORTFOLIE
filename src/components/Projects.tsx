@@ -1,12 +1,12 @@
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, type Transition } from "framer-motion";
+import { ArrowRight, Tv } from "lucide-react";
 import { useState, useEffect } from "react";
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
-// Supabase configuration
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 
 interface Project {
   id: number;
@@ -18,120 +18,144 @@ interface Project {
   github_url: string;
   featured: boolean;
   created_at: string;
-  updated_at: string;
 }
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-60px" },
+  transition: { duration: 0.45, delay, ease: "easeOut" } as Transition,
+});
 
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetch = async () => {
       try {
         const { data, error } = await supabase
-          .from('projects')
-          .select('*')
-          .order('created_at', { ascending: false });
-
-        if (error) {
-          console.error('Error fetching projects:', error);
-        } else {
-          setProjects(data || []);
-        }
-      } catch (error) {
-        console.error('Error:', error);
+          .from("projects")
+          .select("*")
+          .order("created_at", { ascending: false });
+        if (!error) setProjects(data || []);
+      } catch (e) {
+        console.error(e);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchProjects();
+    fetch();
   }, []);
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] flex items-center justify-center">
-        <div className="text-gray-400 text-2xl font-bold animate-pulse">
-          Loading projects...
-        </div>
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <p className="text-white font-mono text-sm animate-pulse tracking-widest">
+          SIGNAL SEARCHING...
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] py-20 px-6">
-      <div className="max-w-[1400px] mx-auto">
-        {/* Header - Our Projects */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6">
-            <span className="text-white">Our </span>
-            <span className="text-white">
-              Projects
-            </span>
+    <div
+      id="projects"
+      className="min-h-screen bg-black py-20 px-6"
+      style={{ fontFamily: "'Courier New', monospace" }}
+    >
+      {/* Scanlines — subtle, full page */}
+      <div
+        className="pointer-events-none fixed inset-0 z-50 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,1) 2px, rgba(0,0,0,1) 4px)",
+        }}
+      />
+
+
+      <div className="max-w-6xl mx-auto">
+
+        {/* Header */}
+        <motion.div className="mb-14" {...fadeUp(0)}>
+          <div className="flex items-center gap-3 mb-2">
+            <Tv className="w-5 h-5 text-white" />
+            <p className="text-white text-xs tracking-[0.4em] uppercase font-black">
+              Channel 03 — Portfolio TV
+            </p>
+          </div>
+          <h1
+            className="text-6xl md:text-8xl font-black text-white leading-none"
+            style={{ textShadow: "0 0 40px rgba(255,255,255,0.1)" }}
+          >
+            PROJECTS
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl">
-            Explore our portfolio of stunning digital experiences
-          </p>
         </motion.div>
 
-        {/* Projects Grid - 3 columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-16">
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="group relative bg-[#0d0d0d] rounded-3xl overflow-hidden border border-[#1f1f1f] hover:border-white/40 transition-all duration-500 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-2"
+              {...fadeUp(Math.min(index * 0.08, 0.3))}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="group relative bg-neutral-900 border border-neutral-800 hover:border-white/20 transition-colors duration-300 rounded-sm overflow-hidden"
             >
-              {/* Image Section */}
-              <div className="relative h-[280px] overflow-hidden bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
+              {/* Channel number — top left */}
+              <div className="absolute top-3 left-3 z-10 bg-black/70 px-2 py-0.5 text-white text-[10px] font-black tracking-widest">
+                CH {String(index + 1).padStart(2, "0")}
+              </div>
+
+              {/* Image with CRT vignette */}
+              <div className="relative h-52 overflow-hidden bg-neutral-800">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-60" />
+                {/* Scanline on image */}
+                <div
+                  className="absolute inset-0 opacity-10 pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,1) 3px, rgba(0,0,0,1) 4px)",
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent" />
               </div>
 
-              {/* Content Section */}
-              <div className="p-8">
-                {/* Title */}
-                <h3 className="text-white text-2xl font-bold mb-4 group-hover:text-gray-300 transition-all duration-300">
+              {/* Content */}
+              <div className="p-5">
+                <h3 className="text-white text-lg font-black mb-2 leading-tight">
                   {project.title}
                 </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-base leading-relaxed mb-6 line-clamp-3">
+                <p className="text-neutral-400 text-xs leading-relaxed mb-4 line-clamp-2">
                   {project.description}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag, idx) => (
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {project.tags.map((tag) => (
                     <span
-                      key={idx}
-                      className="px-4 py-1.5 text-sm font-medium bg-[#1f1f1f] text-gray-300 rounded-full border border-gray-700 hover:border-white/50 hover:text-white transition-all duration-300"
+                      key={tag}
+                      className="px-2.5 py-0.5 text-[10px] font-black text-black bg-white rounded-sm"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* View Project Link */}
+                {/* Link */}
                 {project.live_url && (
                   <a
                     href={project.live_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-white font-semibold transition-all duration-300 group/link"
+                    className="inline-flex items-center gap-1.5 text-white text-xs font-black hover:text-white transition-colors duration-150 group/link"
                   >
-                    View Project
-                    <ArrowRight className="w-5 h-5 text-white group-hover/link:translate-x-1 transition-transform duration-300" />
+                    Visit Site
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform duration-150" />
                   </a>
                 )}
               </div>
